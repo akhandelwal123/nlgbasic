@@ -33,6 +33,8 @@ public class SportsService {
 	TeamStats currentTeam;
 	private static int count = 1;
 	
+	private Map <String, String> mapOfSixes = new HashMap<String , String>();
+	
 	public List<Team> getTeams() {
 		return teams;
 	}
@@ -179,7 +181,7 @@ public class SportsService {
 
 
 	// generating the facts using playergame.json
-	public void generateFacts() {
+	public StringBuilder generateFacts() {
 		
 		//getting the playergame object
 		JSONObject jsonPlayerGameObj = loadPlayerGame();
@@ -216,24 +218,25 @@ public class SportsService {
 			}
 			
 			//generate dynamic language as News based on facts
-			generateNews();
+			return generateNews();
 		}
+		return null;
 	}
 
 
-	private void generateNews() {
+	private StringBuilder generateNews() {
 		StringBuilder strNews = new StringBuilder();
-		strNews.append(NLGSportsConstants.SUMMARY + '\n');
-		strNews.append(NLGSportsConstants.PLAYED.replace("teamA", teamstatsA.getTeamName()).replace("teamB", teamstatsB.getTeamName()).replace("date", teamstatsA.getMatchDate()) + '\n');
-		strNews.append(NLGSportsConstants.SCORE.replace("TTT", teamstatsA.getTeamName()).replace("RRR", String.valueOf(teamstatsA.getTotalscore())).replace("WWW", String.valueOf(teamstatsB.getTotalwickets())).replace("OOO", String.valueOf(teamstatsB.getTotalOvers())) + '\n');
-		strNews.append(NLGSportsConstants.SCORE.replace("TTT", teamstatsB.getTeamName()).replace("RRR", String.valueOf(teamstatsB.getTotalscore())).replace("WWW", String.valueOf(teamstatsA.getTotalwickets())).replace("OOO", String.valueOf(teamstatsA.getTotalOvers())) + '\n');
+		//strNews.append(NLGSportsConstants.SUMMARY);
+		strNews.append(NLGSportsConstants.PLAYED.replace("teamA", teamstatsA.getTeamName()).replace("teamB", teamstatsB.getTeamName()).replace("date", teamstatsA.getMatchDate()));
+		strNews.append(NLGSportsConstants.SCORE.replace("TTT", teamstatsA.getTeamName()).replace("RRR", String.valueOf(teamstatsA.getTotalscore())).replace("WWW", String.valueOf(teamstatsB.getTotalwickets())).replace("OOO", String.valueOf(teamstatsB.getTotalOvers())));
+		strNews.append(NLGSportsConstants.SCORE.replace("TTT", teamstatsB.getTeamName()).replace("RRR", String.valueOf(teamstatsB.getTotalscore())).replace("WWW", String.valueOf(teamstatsA.getTotalwickets())).replace("OOO", String.valueOf(teamstatsA.getTotalOvers())));
 		
 		//setting the winning news by runs or wickets
 		setWinningNews(strNews);
 		
-		//calculate Total score made by teamA
-		totalRuns();
+		strNews.append(NLGSportsConstants.MAXSIXES.replace("PPP", mapOfSixes.get("six").split(",")[0]).replace("SSS", mapOfSixes.get("six").split(",")[1]));
 		
+		return strNews;
 		
 	}
 
@@ -254,12 +257,7 @@ public class SportsService {
 	}
 
 
-	private void totalRuns() {
-		teamstatsA.getMatchId();
-		
-	}
-
-	//setting the details of both the team for a particular match one after another.
+	//setting the details(totalscore , totalwickets , totalovers ) of both the team for a particular match one after another.
 	private void setStatsBothTeams(String teamId, JSONObject jsonGame) {
 		JSONObject job =  (JSONObject) jsonGame.get(teamId);
 		if (mapObjteamPlayers.get(teamId)!= null) {
@@ -271,6 +269,9 @@ public class SportsService {
 					totalscore = totalscore + (jsonObjectPlayerDetails.get("score").toString().trim().equals("null") ? 0 : Integer.valueOf((String)jsonObjectPlayerDetails.get("score")));
 					totalwickets = totalwickets + (StringUtils.isAnyBlank((String) jsonObjectPlayerDetails.get("wickets")) ? 0 : Integer.valueOf((String)jsonObjectPlayerDetails.get("wickets")));
 					totalovers = totalovers + (StringUtils.isAnyBlank((String) jsonObjectPlayerDetails.get("overs")) ? 0 : Integer.valueOf((String)jsonObjectPlayerDetails.get("overs")));
+					
+					//setting the maximum sixes
+					setMaxSIxes(jsonObjectPlayerDetails.get("sixes") , players.get(i).getName());
 			}
 		}
 			currentTeam.setTotalscore(totalscore);
@@ -278,6 +279,20 @@ public class SportsService {
 			currentTeam.setTotalOvers(totalovers);
 		}
 		count = 2;
+	}
+
+
+	//identify the player with the maximum sixes
+	private void setMaxSIxes(Object object, String playerName) {
+		
+		if (mapOfSixes.containsKey("six")) {
+			if (Integer.valueOf(mapOfSixes.get("six").split(",")[1]) < Integer.valueOf(object.toString())){
+				mapOfSixes.put("six", playerName+","+object.toString());
+			}
+		}
+		else {
+			mapOfSixes.put("six", playerName+","+object.toString());
+		}
 	}
 
 }

@@ -1,5 +1,8 @@
 package com.restjersey.nlg.sports;
  
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author abhishek
  */
@@ -8,10 +11,9 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 
-import org.json.simple.JSONObject;
+import org.apache.commons.lang3.StringUtils;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -34,7 +36,7 @@ public class SportResource {
 			produces = "application/json", value = "Cricket news generation for tri series using NLG"
 			)
 	@ApiResponses( value= {
-			@ApiResponse(code = 200, message = "Successfully retrieved." , response = Response.class ),
+			@ApiResponse(code = 200, message = "Successfully retrieved." , response = NLGSportsResponseModel.class ),
 			@ApiResponse(code = 500, message = "Unable to generate news due to internal error " ,
 			response = Response.class),
 	})
@@ -44,11 +46,20 @@ public class SportResource {
 		}
 		else {*/
 		objService.loadAllJsonFiles();
-		objService.generateFacts();
+		StringBuilder strBuilder = objService.generateFacts();
+		NLGSportsResponseModel ngmod = new NLGSportsResponseModel();
+		if (StringUtils.isNotBlank(strBuilder)) {
+			Map<String,String> map = new HashMap<String,String>();
+			NLGSportsData nlgdata = new NLGSportsData();
+			String [] allnews = strBuilder.toString().split(",");
+			for (int i=0; i < allnews.length ; i++) {
+				map.put(String.valueOf(i), allnews[i]);
+			}
+			nlgdata.setMatchSummary(map);
+			ngmod.setData(nlgdata);
+		}
 		
-		JsonElement output = null;
-		return Response.status(200).entity(gson.toJson(output)).build();
-		//}
+		return Response.status(200).entity(gson.toJson(ngmod)).build();
 	}
 
  

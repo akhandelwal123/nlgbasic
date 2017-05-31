@@ -15,7 +15,7 @@ public class NLGSportsResponseModel {
 	 * all the report related data.
 	 */
 	@ApiModelProperty(value = "response data", notes = "response data", required = true)
-	public NLGSportsData data = new NLGSportsData();
+	public NLGSportsData data;
 
 	public RequestMetadata getMeta() {
 		return meta;
