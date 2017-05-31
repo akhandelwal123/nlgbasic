@@ -1,0 +1,25 @@
+{
+  "player_game": {
+    "g1": {
+      "playedFirst" : "t1",
+      "t1": {
+        "I1": {
+          "score": "30",
+          "wickets": "1",
+          "overs": "",
+          "runout": "",
+          "sixes": "3"
+        }
+      },
+      "t2": {
+        "A1": {
+          "score": "25",
+          "wickets": "",
+          "overs": "5",
+          "runout": "",
+          "sixes": "3"
+        }
+      }
+    }
+  }
+}

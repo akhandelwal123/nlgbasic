@@ -1,0 +1,9 @@
+com\restjersey\nlg\sports\SportsService.class
+com\restjersey\nlg\sports\NLGSportsConstants.class
+com\restjersey\nlg\sports\model\Team.class
+com\restjersey\nlg\sports\SportResource.class
+com\restjersey\nlg\sports\model\Game.class
+com\restjersey\nlg\sports\model\PlayerGame.class
+com\restjersey\nlg\sports\stats\MatchStats.class
+com\restjersey\nlg\sports\stats\TeamStats.class
+com\restjersey\nlg\sports\model\Player.class
