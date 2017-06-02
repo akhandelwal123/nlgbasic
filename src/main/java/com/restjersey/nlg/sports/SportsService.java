@@ -241,8 +241,9 @@ public class SportsService {
 		//setting the winning news by runs or wickets
 		setWinningNews(strNews);
 		
-		strNews.append(NLGSportsConstants.MAXSIXES.replace("PPP", mapOfSixes.get("six").split(",")[0]).replace("SSS", mapOfSixes.get("six").split(",")[1]));
-		
+		if (mapOfSixes.containsKey("six")) {
+			strNews.append(NLGSportsConstants.MAXSIXES.replace("PPP", mapOfSixes.get("six").split(",")[0]).replace("SSS", mapOfSixes.get("six").split(",")[1]));
+		}
 		count =1;
 		return strNews;
 		
@@ -254,13 +255,13 @@ public class SportsService {
 			if (teamstatsA.getTotalscore() > teamstatsB.getTotalscore()) {
 				strNews.append(NLGSportsConstants.WINNINGRUNS.replace("TTT", teamstatsA.getTeamName()).replace("RRR", String.valueOf(teamstatsA.getTotalscore()-teamstatsB.getTotalscore())));
 			}else {
-				strNews.append(NLGSportsConstants.WINNINGRUNS.replace("TTT", teamstatsA.getTeamName()).replace("WWW", String.valueOf(11-teamstatsB.getTotalwickets())));
+				strNews.append(NLGSportsConstants.WINNINGWICKETS.replace("TTT", teamstatsB.getTeamName()).replace("WWW", String.valueOf(11-teamstatsB.getTotalwickets())));
 			}
 		}
 		else if (teamstatsB.getTotalscore() > teamstatsA.getTotalscore()) {
 			strNews.append(NLGSportsConstants.WINNINGRUNS.replace("TTT", teamstatsB.getTeamName()).replace("RRR", String.valueOf(teamstatsB.getTotalscore()-teamstatsA.getTotalscore())));
 		}else {
-			strNews.append(NLGSportsConstants.WINNINGRUNS.replace("TTT", teamstatsB.getTeamName()).replace("WWW", String.valueOf(11-teamstatsA.getTotalwickets())));
+			strNews.append(NLGSportsConstants.WINNINGWICKETS.replace("TTT", teamstatsA.getTeamName()).replace("WWW", String.valueOf(11-teamstatsA.getTotalwickets())));
 		}
 	}
 
@@ -279,7 +280,7 @@ public class SportsService {
 					totalovers = totalovers + (StringUtils.isAnyBlank((String) jsonObjectPlayerDetails.get("overs")) ? 0 : Integer.valueOf((String)jsonObjectPlayerDetails.get("overs")));
 					
 					//setting the maximum sixes
-					setMaxSIxes(jsonObjectPlayerDetails.get("sixes") , players.get(i).getName());
+					setMaxSIxes((String)jsonObjectPlayerDetails.get("sixes") , players.get(i).getName());
 			}
 		}
 			currentTeam.setTotalscore(totalscore);
@@ -291,15 +292,16 @@ public class SportsService {
 
 
 	//identify the player with the maximum sixes
-	private void setMaxSIxes(Object object, String playerName) {
-		
-		if (mapOfSixes.containsKey("six")) {
-			if (Integer.valueOf(mapOfSixes.get("six").split(",")[1]) < Integer.valueOf(object.toString())){
+	private void setMaxSIxes(String object, String playerName) {
+		if (StringUtils.isNotBlank(object)) {
+			if (mapOfSixes.containsKey("six")) {
+				if (Integer.valueOf(mapOfSixes.get("six").split(",")[1]) < Integer.valueOf(object.toString())){
+					mapOfSixes.put("six", playerName+","+object.toString());
+				}
+			}
+			else {
 				mapOfSixes.put("six", playerName+","+object.toString());
 			}
-		}
-		else {
-			mapOfSixes.put("six", playerName+","+object.toString());
 		}
 	}
 
