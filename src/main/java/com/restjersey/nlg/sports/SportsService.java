@@ -196,31 +196,38 @@ public class SportsService {
 			teamstatsB.setMatchDate(games.get(0).getDate());
 			//int count = 1;
 			for (Team team : teams){
-				if (count  != 1) {
+				if (count  == 2) {
 					 currentTeam = teamstatsB;
+					 setOverWicketRuns(jsonGame, team);
 				}
-				else {
+				else if (count  == 1){
 					currentTeam = teamstatsA;
+					setOverWicketRuns(jsonGame, team);
 				}
-				if (jsonGame.get(team.getId()) != null){
-					//setting the team names
-					currentTeam.setTeamName(team.getName());
-					
-					//set stats by Both teams
-					setStatsBothTeams(team.getId(),jsonGame);
-					
-					//set who played first
-					if (team.getId().equalsIgnoreCase((String) jsonGame.get("playedFirst"))) {
-						currentTeam.setPlayedFirst(true);
-					}
-					
-				}
+				
 			}
 			
 			//generate dynamic language as News based on facts
 			return generateNews();
 		}
 		return null;
+	}
+
+
+	private void setOverWicketRuns(JSONObject jsonGame, Team team) {
+		if (jsonGame.get(team.getId()) != null){
+			//setting the team names
+			currentTeam.setTeamName(team.getName());
+			
+			//set stats by Both teams
+			setStatsBothTeams(team.getId(),jsonGame);
+			
+			//set who played first
+			if (team.getId().equalsIgnoreCase((String) jsonGame.get("playedFirst"))) {
+				currentTeam.setPlayedFirst(true);
+			}
+			
+		}
 	}
 
 
@@ -236,6 +243,7 @@ public class SportsService {
 		
 		strNews.append(NLGSportsConstants.MAXSIXES.replace("PPP", mapOfSixes.get("six").split(",")[0]).replace("SSS", mapOfSixes.get("six").split(",")[1]));
 		
+		count =1;
 		return strNews;
 		
 	}
@@ -278,7 +286,7 @@ public class SportsService {
 			currentTeam.setTotalwickets(totalwickets);
 			currentTeam.setTotalOvers(totalovers);
 		}
-		count = 2;
+		count = count+1;
 	}
 
 
