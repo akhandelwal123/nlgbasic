@@ -1,6 +1,8 @@
 package com.restjersey.nlg.sports;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,15 +18,19 @@ public class NLGSportsData {
 	 * summary of news.
 	 */
 	@io.swagger.annotations.ApiModelProperty(value = "data", notes = "summary of news", required = true)
-	private	Map<String,String>matchsummary = new HashMap<String,String>() ;
+	private	List<Map<String,String>> matchsummary = new ArrayList<Map<String,String>>() ;
 
-	public Map<String, String> getMatchSummary() {
+	public List<Map<String, String>> getMatchsummary() {
 		return matchsummary;
 	}
 
-	public void setMatchSummary(Map<String, String> mapOfNews) {
-		this.matchsummary = mapOfNews;
+	public void setMatchsummary(List<Map<String, String>> matchsummary) {
+		this.matchsummary = matchsummary;
 	}
 	
+	public void add(Map<String,String> mapOfNews) {
+		matchsummary.add(mapOfNews);
+	}
+
 	
 }

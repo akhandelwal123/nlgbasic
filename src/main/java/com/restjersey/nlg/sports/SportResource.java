@@ -1,5 +1,6 @@
 package com.restjersey.nlg.sports;
  
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,19 +47,20 @@ public class SportResource {
 		}
 		else {*/
 		objService.loadAllJsonFiles();
-		StringBuilder strBuilder = objService.generateFacts();
+		ArrayList<StringBuilder> ayyayStrBuilder = (ArrayList) objService.generateFacts();
 		NLGSportsResponseModel ngmod = new NLGSportsResponseModel();
-		if (StringUtils.isNotBlank(strBuilder)) {
-			Map<String,String> map = new HashMap<String,String>();
-			NLGSportsData nlgdata = new NLGSportsData();
-			String [] allnews = strBuilder.toString().split(",");
-			for (int i=0; i < allnews.length ; i++) {
-				map.put(String.valueOf(i), allnews[i]);
+		NLGSportsData nlgdata = new NLGSportsData();
+		for (StringBuilder strBuilder : ayyayStrBuilder) {
+			if (StringUtils.isNotBlank(strBuilder)) {
+				Map<String,String> map = new HashMap<String,String>();
+				String [] allnews = strBuilder.toString().split(",");
+				for (int i=0; i < allnews.length ; i++) {
+					map.put(String.valueOf(i), allnews[i]);
+				}
+				nlgdata.add(map);
 			}
-			nlgdata.setMatchSummary(map);
-			ngmod.setData(nlgdata);
 		}
-		
+		ngmod.setData(nlgdata);
 		return Response.status(200).entity(gson.toJson(ngmod)).build();
 	}
 

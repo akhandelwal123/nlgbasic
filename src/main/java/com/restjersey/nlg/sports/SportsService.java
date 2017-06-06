@@ -35,6 +35,8 @@ public class SportsService {
 	
 	private Map <String, String> mapOfSixes = new HashMap<String , String>();
 	
+	
+	private List<StringBuilder> objListStrBuilder = new ArrayList<>();
 	private StringBuilder objStrBuilder = new StringBuilder();
 	public List<Team> getTeams() {
 		return teams;
@@ -182,7 +184,7 @@ public class SportsService {
 
 
 	// generating the facts using playergame.json
-	public StringBuilder generateFacts() {
+	public List<StringBuilder> generateFacts() {
 		
 		//getting the playergame object
 		JSONObject jsonPlayerGameObj = loadPlayerGame();
@@ -210,12 +212,12 @@ public class SportsService {
 			}
 			
 			//generate dynamic language as News based on facts
-			objStrBuilder.append(generateNews());
+			objListStrBuilder.add(generateNews());
 			}
 			if (mapOfSixes.containsKey("six")) {
 				objStrBuilder.append(NLGSportsConstants.MAXSIXES.replace("PPP", mapOfSixes.get("six").split(",")[0]).replace("SSS", mapOfSixes.get("six").split(",")[1]));
 			}
-			return objStrBuilder;
+			return objListStrBuilder;
 		}
 		return null;
 	}
