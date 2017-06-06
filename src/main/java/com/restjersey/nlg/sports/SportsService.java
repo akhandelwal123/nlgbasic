@@ -35,6 +35,7 @@ public class SportsService {
 	
 	private Map <String, String> mapOfSixes = new HashMap<String , String>();
 	
+	private StringBuilder objStrBuilder = new StringBuilder();
 	public List<Team> getTeams() {
 		return teams;
 	}
@@ -189,11 +190,12 @@ public class SportsService {
 		if(jsonPlayerGameObj != null) {
 			
 			//loading data for 1st game . This is hardcoded as of now . Need to make it dynamic.
-			JSONObject jsonGame = (JSONObject) jsonPlayerGameObj.get("g1");
-			teamstatsA.setMatchId("g1");
-			teamstatsB.setMatchId("g1");
-			teamstatsA.setMatchDate(games.get(0).getDate());
-			teamstatsB.setMatchDate(games.get(0).getDate());
+			for (int k=1 ; k<=jsonPlayerGameObj.size() ;k++) {
+			JSONObject jsonGame = (JSONObject) jsonPlayerGameObj.get("g"+k);
+			teamstatsA.setMatchId("g"+k);
+			teamstatsB.setMatchId("g"+k);
+			teamstatsA.setMatchDate(games.get(k-1).getDate());
+			teamstatsB.setMatchDate(games.get(k-1).getDate());
 			//int count = 1;
 			for (Team team : teams){
 				if (count  == 2) {
@@ -208,7 +210,12 @@ public class SportsService {
 			}
 			
 			//generate dynamic language as News based on facts
-			return generateNews();
+			objStrBuilder.append(generateNews());
+			}
+			if (mapOfSixes.containsKey("six")) {
+				objStrBuilder.append(NLGSportsConstants.MAXSIXES.replace("PPP", mapOfSixes.get("six").split(",")[0]).replace("SSS", mapOfSixes.get("six").split(",")[1]));
+			}
+			return objStrBuilder;
 		}
 		return null;
 	}
@@ -241,9 +248,9 @@ public class SportsService {
 		//setting the winning news by runs or wickets
 		setWinningNews(strNews);
 		
-		if (mapOfSixes.containsKey("six")) {
+/*		if (mapOfSixes.containsKey("six")) {
 			strNews.append(NLGSportsConstants.MAXSIXES.replace("PPP", mapOfSixes.get("six").split(",")[0]).replace("SSS", mapOfSixes.get("six").split(",")[1]));
-		}
+		}*/
 		count =1;
 		return strNews;
 		
