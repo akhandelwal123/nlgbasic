@@ -1,0 +1,94 @@
+{
+  "player": {
+    "t1": [
+      {
+        "pId": "I1",
+        "name": "Sachin"
+      },
+      {
+        "pId": "I2",
+        "name": "Sourav"
+      },
+      {
+        "pId": "I3",
+        "name": "Sehwag"
+      },
+      {
+        "pId": "I4",
+        "name": "Rahul"
+      },
+      {
+        "pId": "I5",
+        "name": "Kohli"
+      },
+      {
+        "pId": "I6",
+        "name": "Dhoni"
+      },
+      {
+        "pId": "I7",
+        "name": "Zaheer"
+      }
+    ],
+    "t2": [
+      {
+        "pId": "A1",
+        "name": "Gilchrist"
+      },
+      {
+        "pId": "A2",
+        "name": "Pointing"
+      },
+      {
+        "pId": "A3",
+        "name": "Hayden"
+      },
+      {
+        "pId": "A4",
+        "name": "Symonds"
+      },
+      {
+        "pId": "A5",
+        "name": "Warner"
+      },
+      {
+        "pId": "A6",
+        "name": "Smith"
+      },
+      {
+        "pId": "A7",
+        "name": "Maxwell"
+      }
+    ],
+    "t3": [
+      {
+        "pId": "E1",
+        "name": "Hales"
+      },
+      {
+        "pId": "E2",
+        "name": "Bell"
+      },
+      {
+        "pId": "E3",
+        "name": "Buttler"
+      },
+      {
+        "pId": "E4",
+        "name": "Broad"
+      },
+      {
+        "pId": "E5",
+        "name": "Stokes"
+      },
+      {
+        "pId": "E6",
+        "name": "Root"
+      },
+      {
+        "pId": "E7",
+        "name": "Cook"
+      }
+    ]
+  }
+}

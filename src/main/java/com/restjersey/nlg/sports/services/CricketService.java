@@ -1,4 +1,4 @@
-package com.restjersey.nlg.sports;
+package com.restjersey.nlg.sports.services;
 
 import java.io.File;
 import java.io.FileReader;
@@ -12,12 +12,13 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import com.restjersey.nlg.sports.constant.NLGSportsConstants;
+import com.restjersey.nlg.sports.cric.stats.TeamStats;
 import com.restjersey.nlg.sports.model.Game;
 import com.restjersey.nlg.sports.model.Player;
 import com.restjersey.nlg.sports.model.Team;
-import com.restjersey.nlg.sports.stats.TeamStats;
 
-public class SportsService {
+public class CricketService {
 
 	
 	private Game objGame;

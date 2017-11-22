@@ -1,0 +1,165 @@
+{
+  "player_game": {
+    "g1": {
+      "playedFirst" : "t1",
+      "t1": {
+        "I1": {
+          "twopointers": "30",
+          "threepointers": "1",
+          "totalfreethrows": "5",
+          "successfreethrows": "1"
+        },
+        "I2": {
+          "twopointers": "30",
+          "threepointers": "1",
+          "totalfreethrows": "5",
+          "successfreethrows": ""
+        },
+        "I3": {
+          "twopointers": "54",
+          "threepointers": "",
+          "totalfreethrows": "3",
+          "successfreethrows": ""
+          
+        },
+        "I4": {
+          "twopointers": "50",
+          "threepointers": "",
+          "totalfreethrows": "",
+          "successfreethrows": ""
+        },
+        "I5": {
+          "twopointers": "30",
+          "threepointers": "",
+          "totalfreethrows": "",
+          "successfreethrows": ""
+          
+        },
+        "I6": {
+          "twopointers": "12",
+          "threepointers": "1",
+          "totalfreethrows": "2",
+          "successfreethrows": ""
+          
+        }
+      },
+      "t2": {
+        "A1": {
+          "twopointers": "40",
+          "threepointers": "",
+          "totalfreethrows": "5",
+          "successfreethrows": ""
+        },
+        "A2": {
+          "twopointers": "30",
+          "threepointers": "1",
+          "totalfreethrows": "5",
+          "successfreethrows": ""        
+        },
+        "A3": {
+          "twopointers": "54",
+          "threepointers": "",
+          "totalfreethrows": "3",
+          "successfreethrows": "" 
+        },
+        "A4": {
+          "twopointers": "50",
+          "threepointers": "2",
+          "totalfreethrows": "1",
+          "successfreethrows": ""
+        },
+        "A5": {
+          "twopointers": "30",
+          "threepointers": "",
+          "totalfreethrows": "2",
+          "successfreethrows": ""     
+        },
+        "A6": {
+          "twopointers": "12",
+          "threepointers": "1",
+          "totalfreethrows": "4",
+          "successfreethrows": ""
+        }
+      }
+    },
+    "g2": {
+      "playedFirst" : "t1",
+      "t1": {
+        "I1": {
+          "twopointers": "30",
+          "threepointers": "1",
+          "totalfreethrows": "5",
+          "successfreethrows": ""
+        },
+        "I2": {
+          "twopointers": "30",
+          "threepointers": "1",
+          "totalfreethrows": "5",
+          "successfreethrows": ""
+        },
+        "I3": {
+          "twopointers": "54",
+          "threepointers": "",
+          "totalfreethrows": "3",
+          "successfreethrows": "" 
+        },
+        "I4": {
+          "twopointers": "50",
+          "threepointers": "",
+          "totalfreethrows": "",
+          "successfreethrows": ""
+        },
+        "I5": {
+          "twopointers": "30",
+          "threepointers": "",
+          "totalfreethrows": "",
+          "successfreethrows": "" 
+        },
+        "I6": {
+          "twopointers": "12",
+          "threepointers": "1",
+          "totalfreethrows": "2",
+          "successfreethrows": ""
+        }
+      },
+      "t3": {
+        "E1": {
+          "twopointers": "90",
+          "threepointers": "",
+          "totalfreethrows": "5",
+          "successfreethrows": ""
+        },
+        "E2": {
+          "twopointers": "30",
+          "threepointers": "1",
+          "totalfreethrows": "5",
+          "successfreethrows": ""
+        },
+        "E3": {
+          "twopointers": "54",
+          "threepointers": "",
+          "totalfreethrows": "3",
+          "successfreethrows": ""
+        },
+        "E4": {
+          "twopointers": "50",
+          "threepointers": "2",
+          "totalfreethrows": "1",
+          "successfreethrows": ""
+        },
+        "E5": {
+          "twopointers": "30",
+          "threepointers": "",
+          "totalfreethrows": "2",
+          "successfreethrows": ""
+        },
+        "E6": {
+          "twopointers": "12",
+          "threepointers": "1",
+          "totalfreethrows": "4",
+          "successfreethrows": ""
+        }
+      }
+    }
+  }
+}

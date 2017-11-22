@@ -1,4 +1,4 @@
-package com.restjersey.nlg.sports;
+package com.restjersey.nlg.sports.dto.cricresource;
 
 import java.util.ArrayList;
 import java.util.HashMap;

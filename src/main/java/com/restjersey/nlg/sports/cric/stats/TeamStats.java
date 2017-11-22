@@ -1,4 +1,4 @@
-package com.restjersey.nlg.sports.stats;
+package com.restjersey.nlg.sports.cric.stats;
 
 public class TeamStats {
 	

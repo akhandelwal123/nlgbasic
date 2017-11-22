@@ -1,0 +1,16 @@
+{
+  "team": [
+    {
+      "id": "t1",
+      "name": "Bulls"
+    },
+    {
+      "id": "t2",
+      "name": "Lakers"
+    },
+    {
+      "id": "t3",
+      "name": "Wizards"
+    }
+  ]
+}

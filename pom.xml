@@ -54,7 +54,7 @@
 					<version>3.0.0</version>
 					<configuration>
 						<warSourceDirectory>src/main/webapp</warSourceDirectory>
-						<!-- <outputDirectory>C:\software\apache-tomcat-9.0.0.M17\webapps</outputDirectory> -->
+						 <outputDirectory>D:\apache-tomcat-9.0.0.M21\webapps</outputDirectory>
 					</configuration>
 				</plugin>
 				<plugin>
