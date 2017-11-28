@@ -19,6 +19,10 @@ public class NLGSportsConstants {
 	 public final static String POINTSANDTHROWS = "Total points scored by team TTT is PPP with TWO-TwoPointers and THREE-ThreePointers and XXX-successfullthrows,";
 	 public final static String WINNINPOINTS = "Team TTT is won by AAA,";
 	 public final static String MAXPOINTS = "The maximum points scored by player PPP with SSS points,";
+	 public final static String GOALSANDSHOTS = "Team TTT has scored GGG goals with SSS shots,";
+	 public final static String WINNINGGOALS = "Team TTT has won by GGG goals,";
+	 public final static String MAXGOALS = "The maximum goals scored by player PPP with SSS goals,";
+	 public final static String SOCCTIE = "Match is tie between AAA & BBB,";
 	 
 
 }

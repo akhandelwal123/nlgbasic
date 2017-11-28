@@ -1,0 +1,16 @@
+{
+  "team": [
+    {
+      "id": "t1",
+      "name": "Brazil"
+    },
+    {
+      "id": "t2",
+      "name": "Argentina"
+    },
+    {
+      "id": "t3",
+      "name": "Germany"
+    }
+  ]
+}

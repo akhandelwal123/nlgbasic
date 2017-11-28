@@ -1,0 +1,138 @@
+{
+  "player_game": {
+    "g1": {
+      "playedFirst" : "t1",
+      "t1": {
+        "I1": {
+          "shoots": "5",
+          "goals": "1",
+          "goalkeeper": "Y"
+        },
+        "I2": {
+          "shoots": "3",
+          "goals": "0",
+          "goalkeeper": "N"
+        },
+        "I3": {
+          "shoots": "1",
+          "goals": "0",
+          "goalkeeper": "N"
+        },
+        "I4": {
+          "shoots": "3",
+          "goals": "",
+          "goalkeeper": "N"
+        },
+        "I5": {
+          "shoots": "7",
+          "goals": "1",
+          "goalkeeper": "N"
+        },
+        "I6": {
+          "shoots": "2",
+          "goals": "0",
+          "goalkeeper": "N"
+        }
+      },
+      "t2": {
+        "A1": {
+          "shoots": "3",
+          "goals": "1",
+          "goalkeeper": "N"
+        },
+        "A2": {
+          "shoots": "",
+          "goals": "1",
+          "goalkeeper": "N"
+        },
+        "A3": {
+          "shoots": "1",
+          "goals": "1",
+          "goalkeeper": "N"
+        },
+        "A4": {
+          "shoots": "3",
+          "goals": "0",
+          "goalkeeper": "N"
+        },
+        "A5": {
+           "shoots": "3",
+          "goals": "0",
+          "goalkeeper": "N"
+        },
+        "A6": {
+           "shoots": "3",
+          "goals": "3",
+          "goalkeeper": "N"
+        }
+      }
+    },
+    "g2": {
+      "playedFirst" : "t1",
+      "t1": {
+        "I1": {
+           "shoots": "",
+          "goals": "",
+          "goalkeeper": "Y"
+        },
+        "I2": {
+           "shoots": "3",
+          "goals": "1",
+          "goalkeeper": "N"
+        },
+        "I3": {
+           "shoots": "3",
+          "goals": "1",
+          "goalkeeper": "N"
+        },
+        "I4": {
+           "shoots": "1",
+          "goals": "0",
+          "goalkeeper": "N"
+        },
+        "I5": {
+           "shoots": "3",
+          "goals": "0",
+          "goalkeeper": "N"
+        },
+        "I6": {
+           "shoots": "3",
+          "goals": "1",
+          "goalkeeper": "N"
+        }
+      },
+      "t3": {
+        "E1": {
+           "shoots": "4",
+          "goals": "",
+          "goalkeeper": "N"
+        },
+        "E2": {
+          "shoots": "1",
+          "goals": "",
+          "goalkeeper": "N"
+        },
+        "E3": {
+           "shoots": "",
+          "goals": "",
+          "goalkeeper": "Y"
+        },
+        "E4": {
+          "shoots": "3",
+          "goals": "1",
+          "goalkeeper": "N"
+        },
+        "E5": {
+           "shoots": "3",
+          "goals": "1",
+          "goalkeeper": "N"
+        },
+        "E6": {
+          "shoots": "3",
+          "goals": "1",
+          "goalkeeper": "N"
+        }
+      }
+    }
+  }
+}
