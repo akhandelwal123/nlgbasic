@@ -8,6 +8,6 @@ mv apache-tomcat-9.0.2 apache-tomcat9
 ADD ./nlgbasic.war /apache-tomcat9/webapps/nlgbasic.war
 ADD ./service.sh /service.sh
 
-EXPOSE 8083
+EXPOSE 8080
 
 ENTRYPOINT ["/service.sh"]
