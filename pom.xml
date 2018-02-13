@@ -54,7 +54,7 @@
 					<version>3.0.0</version>
 					<configuration>
 						<warSourceDirectory>src/main/webapp</warSourceDirectory>
-						 <outputDirectory>/home/abhishek/software/apache-tomcat-9.0.0.M21/webapps</outputDirectory>
+						 <outputDirectory>.</outputDirectory>
 					</configuration>
 				</plugin>
 				<plugin>
