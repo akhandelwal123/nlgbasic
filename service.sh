@@ -1,6 +1,8 @@
 #!/bin/bash
 
 echo "inside script"
-cd apache-tomcat9/bin
+#cd /usr/local/tomcat/bin
+#chmod -R 777 .
 
-./startup.sh
+exec ${CATALINA_HOME}/bin/catalina.sh run
+

@@ -1,13 +1,11 @@
-FROM openjdk:8-jre
+FROM tomcat:9.0.5-jre8
 
-cd /opt
-wget http://www-us.apache.org/dist/tomcat/tomcat-9/v9.0.4/bin/apache-tomcat-9.0.4.tar.gz
-tar xzf apache-tomcat-9.0.4.tar.gz
-mv apache-tomcat-9.0.2 apache-tomcat9
+COPY /nlgbasic.war /usr/local/tomcat/webapps/
+COPY /service.sh /
 
-ADD ./nlgbasic.war /apache-tomcat9/webapps/nlgbasic.war
-ADD ./service.sh /service.sh
+RUN chmod +x /service.sh 
+RUN chmod -R 777 /usr/local/tomcat
 
-EXPOSE 8080
-
+EXPOSE 8082
 ENTRYPOINT ["/service.sh"]
+
