@@ -6,6 +6,6 @@ COPY /service.sh /
 RUN chmod +x /service.sh 
 RUN chmod -R 777 /usr/local/tomcat
 
-EXPOSE 8082
+EXPOSE 8080
 ENTRYPOINT ["/service.sh"]
 
